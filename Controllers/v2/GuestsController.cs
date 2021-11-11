@@ -3,20 +3,18 @@ using SimpleApi.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace SimpleApi.Controllers
+namespace SimpleApi.Controllers.v2
 {
-    [Route("api/[controller]")]
+    [Route("api/v2/[controller]")]
     [ApiVersion("2.0")]
     [ApiController]
     public class GuestsController : ControllerBase
     {
         private static List<GuestModelV1> guests = new()
         {
-            new GuestModelV1 { Id = 1, FirstName = "Tim", LastName = "Corey" },
-            new GuestModelV1 { Id = 2, FirstName = "Sue", LastName = "Storm" },
-            new GuestModelV1 { Id = 3, FirstName = "Robert", LastName = "Spencer" }
+            new GuestModelV1 { Id = 1, FirstName = "Doniyor", LastName = "Niyozov" },
+            new GuestModelV1 { Id = 2, FirstName = "Abbos", LastName = "Siddiqov" },
+            new GuestModelV1 { Id = 3, FirstName = "Bohir", LastName = "Ahmedov" }
         };
 
         // GET: api/<GuestsController>
