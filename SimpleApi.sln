@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi", "SimpleApi.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleUI", "..\SimpleUI\SimpleUI.csproj", "{B3AB15C1-6ACF-490D-A9F3-02017227EB60}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A9BF4031-0234-49D9-A6E3-77FDB5B2AE07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B3AB15C1-6ACF-490D-A9F3-02017227EB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AB15C1-6ACF-490D-A9F3-02017227EB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AB15C1-6ACF-490D-A9F3-02017227EB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9BF4031-0234-49D9-A6E3-77FDB5B2AE07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BF4031-0234-49D9-A6E3-77FDB5B2AE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BF4031-0234-49D9-A6E3-77FDB5B2AE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BF4031-0234-49D9-A6E3-77FDB5B2AE07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
