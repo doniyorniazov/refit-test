@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: simpleApi
+  labels: 
+    app: Simple API
+spec: 
+  replicas: 1
+  selector: 
+    matchlabels:
+      service: simpleApi
+  templplate: 
+    metadata: 
+      labels:
+        app: simpleApi
+        service: webapi 
+    spec: 
+      containers:
+        - name: simpleapi
+          image: doniyozov/simpleapi
+          ports: 
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name:ASPNETCORE_URLS
+              value: http://+:80
