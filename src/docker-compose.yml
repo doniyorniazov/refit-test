@@ -6,9 +6,18 @@ services:
     build:
       context: .
       dockerfile: SimpeApi/Dockerfile
+    ports: 
+      - "5001:5001" #https
+      - "5000:5000"
+
   simpleui:
     image: doniyozov/simpleui
     build:
       context: .
       dockerfile: SimpleUI/Dockerfile
+    depends_on:
+      - simpleapi
+    ports:
+      - "5003:5003" #https
+      - "5002:5002"
         

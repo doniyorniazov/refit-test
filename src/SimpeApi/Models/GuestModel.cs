@@ -1,6 +1,6 @@
 ﻿namespace SimpleApi.Models
 {
-    public class GuestModelV1
+    public class GuestModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

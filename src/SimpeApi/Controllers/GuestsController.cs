@@ -8,41 +8,40 @@ using System.Linq;
 namespace SimpleApi.Controllers
 {
     [Route("api/[controller]")]
-    [ApiVersion("2.0")]
     [ApiController]
     public class GuestsController : ControllerBase
     {
-        private static List<GuestModelV1> guests = new()
+        private static List<GuestModel> guests = new()
         {
-            new GuestModelV1 { Id = 1, FirstName = "Tim", LastName = "Corey" },
-            new GuestModelV1 { Id = 2, FirstName = "Sue", LastName = "Storm" },
-            new GuestModelV1 { Id = 3, FirstName = "Robert", LastName = "Spencer" }
+            new GuestModel { Id = 1, FirstName = "Tim", LastName = "Corey" },
+            new GuestModel { Id = 2, FirstName = "Sue", LastName = "Storm" },
+            new GuestModel { Id = 3, FirstName = "Robert", LastName = "Spencer" }
         };
 
         // GET: api/<GuestsController>
         [HttpGet]
-        public IEnumerable<GuestModelV1> Get()
+        public IEnumerable<GuestModel> Get()
         {
             return guests;
         }
 
         // GET api/<GuestsController>/5
         [HttpGet("{id}")]
-        public GuestModelV1 Get(int id)
+        public GuestModel Get(int id)
         {
             return guests.Where(g => g.Id == id).FirstOrDefault();
         }
 
         // POST api/<GuestsController>
         [HttpPost]
-        public void Post([FromBody] GuestModelV1 value)
+        public void Post([FromBody] GuestModel value)
         {
             guests.Add(value);
         }
 
         // PUT api/<GuestsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] GuestModelV1 value)
+        public void Put(int id, [FromBody] GuestModel value)
         {
             guests.Remove(guests.Where(g => g.Id == id).FirstOrDefault());
             guests.Add(value);
