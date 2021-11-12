@@ -27,8 +27,8 @@
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80"
       },
-      "sslPort": 5001,
       "httpPort": 5000,
+      "sslPort": 5007,
       "useSSL": true
     }
   }

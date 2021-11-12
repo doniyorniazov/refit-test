@@ -7,7 +7,6 @@ using SimpleUI.DataAccess;
 
 namespace SimpleUI
 {
-    //https://localhost:44367
     public class Program
     {
         public static async Task Main(string[] args)
@@ -17,7 +16,7 @@ namespace SimpleUI
 
             builder.Services.AddRefitClient<IGuestData>().ConfigureHttpClient(c =>
             {
-                c.BaseAddress = new Uri("https://localhost:44367/api");
+                c.BaseAddress = new Uri("https://localhost:5002/api");
             });
 
             await builder.Build().RunAsync();
