@@ -3,9 +3,9 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>39ab6aae-a828-48a6-b9ac-d0128581230c</ProjectGuid>
+    <ProjectGuid>5bac3b3b-1f0a-452b-b8e8-a2363f4391e5</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/{Scheme}://{ServiceHost}:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>simpleapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

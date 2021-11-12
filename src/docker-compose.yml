@@ -2,21 +2,7 @@ version: '3.4'
 
 services:
   simpleapi:
-    image: doniyozov/simpleapi
+    image: ${DOCKER_REGISTRY-}simpleapi
     build:
       context: .
       dockerfile: SimpeApi/Dockerfile
-    #environment:
-    #  - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:       
-      - "9000:5000"
-
-  #simpleui:
-  #  image: doniyozov/simpleui
-  #  build:
-  #    context: .
-  #    dockerfile: SimpleUI/Dockerfile
-  #  depends_on:
-  #    - simpleapi
-  #  ports:
-  #    - "5001:80" #https
