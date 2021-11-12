@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  simpleapi:
+    image: doniyozov/simpleapi
+    build:
+      context: .
+      dockerfile: SimpeApi/Dockerfile
+  simpleui:
+    image: doniyozov/simpleui
+    build:
+      context: .
+      dockerfile: SimpleUI/Dockerfile
+        
