@@ -16,7 +16,7 @@ namespace SimpleUI
 
             builder.Services.AddRefitClient<IGuestData>().ConfigureHttpClient(c =>
             {
-                c.BaseAddress = new Uri("https://localhost:5002/api");
+                c.BaseAddress = new Uri("http://localhost:5000/api");
             });
 
             await builder.Build().RunAsync();
