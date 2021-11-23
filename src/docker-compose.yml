@@ -9,7 +9,7 @@ services:
     environment:
       - "ASPNETCORE_URLS=http://+:80"
     ports:
-      - "5000:80"
+      - "9000:80"
 
   webapp:
     image: doniyozov/webapp
@@ -22,4 +22,4 @@ services:
       - "ASPNETCORE_URLS=http://+:80"
       - "API_BASE_URL=http://webapp:80"
     ports:
-      - "5001:80"
+      - "9001:80"
