@@ -3,6 +3,7 @@ version: '3.4'
 services:
   api:
     image: doniyozov/api
+    container_name: API
     build:
       context: .
       dockerfile: SimpleApi/Dockerfile
@@ -13,6 +14,7 @@ services:
 
   webapp:
     image: doniyozov/webapp
+    container_name: WebUI
     build: 
       context: .
       dockerfile: SimpleUI/Dockerfile
