@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpleapi
+  labels:
+    app: simpleapi
+spec:
+  selector:
+    matchLabels:
+      app: simpleapi
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: simpleapi
+        service: simpleapi
+    spec:
+      containers:
+        - name: api
+          image: doniyozov/api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS 
+              value: http://+:80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simpleapi
+  labels:
+    app: simpleapi
+    service: simpleapi
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 9000
+      targetPort: 80
+      protocol: TCP
+  selector:
+    service: simpleapi
