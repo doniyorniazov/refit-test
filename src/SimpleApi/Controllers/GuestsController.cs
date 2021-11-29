@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleApi.Models;
 using System.Collections.Generic;
+using System.Threading;
 using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,6 +23,7 @@ namespace SimpleApi.Controllers
         [HttpGet]
         public IEnumerable<GuestModel> Get()
         {
+             Thread.Sleep(10000);
             return guests;
         }
 

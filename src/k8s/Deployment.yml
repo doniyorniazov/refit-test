@@ -9,15 +9,15 @@ spec:
     matchLabels:
       app: simpleapi
   replicas: 3
-  template:
+  template: #POD 
     metadata:
       labels:
-        app: simpleapi
+        app: simpleapi 
         service: simpleapi
     spec:
       containers:
         - name: api
-          image: doniyozov/api
+          image: doniyozov/api:2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
@@ -36,8 +36,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 9000
-      targetPort: 80
+    - port: 5005 #his  port is the port which belongs to ClusterIP which will be exposed
+      targetPort: 80 #this port should match with the port application is targetting in this case: containerPort: 80. 
+      nodePort: 30010 # this should be in from range: 30000 - 32767
       protocol: TCP
   selector:
-    service: simpleapi
+    service: simpleapi #This should match with Pod label

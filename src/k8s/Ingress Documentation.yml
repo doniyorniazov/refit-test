@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simpleapi
+spec:
+  rules: #routing rules
+  - host: simpleapi.com #this is the host user will call from the browser, so this should be mapped with entrypoint nodes IP Adress
+    http: #this http is not the http in host for ex: http://simpleapi.com 
+      paths:
+      - backend: # the URL path
+          serviceName: simpleapi-internal-service #name should match with the name of internal service. So call for the host will be redirected to this internal service which is in ClusterIP-Service.yml file
+          servicePort: 5005 #this should match with the port specified in internal service
