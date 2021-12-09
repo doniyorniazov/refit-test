@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: simpleapi
-  replicas: 3
+  replicas: 2
   template: #POD 
     metadata:
       labels:
@@ -16,8 +16,8 @@ spec:
         service: simpleapi
     spec:
       containers:
-        - name: api
-          image: doniyozov/api:2
+        - name: simpleapi
+          image: eaglevision.azurecr.io/simpleapi:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

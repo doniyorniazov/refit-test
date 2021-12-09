@@ -5,7 +5,7 @@ metadata:
   labels: 
     app: Simple API
 spec: 
-  replicas: 1
+  replicas: 2
   selector: 
     matchlabels:
       service: simpleApi
@@ -14,13 +14,16 @@ spec:
       labels:
         app: simpleApi
         service: webapi 
-    spec: 
+    spec:
       containers:
         - name: simpleapi
-          image: doniyozov/simpleapi
-          ports: 
+          image: eaglebusinesssoftware.azurecr.io/simpleapi:v1
+          imagePullPolicy: IfNotPresent
+          ports:
             - containerPort: 80
               protocol: TCP
           env:
-            - name:ASPNETCORE_URLS
+            - name: ASPNETCORE_URLS 
               value: http://+:80
+#      imagePullSecrets:
+#        - name: eaglebusinesssoftware.azurecr.io
