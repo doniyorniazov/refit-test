@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
         - name: simpleapi
-          image: eaglevision.azurecr.io/simpleapi:v1
-          imagePullPolicy: IfNotPresent
+          image: eaglevision.azurecr.io/simpleapi:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
               protocol: TCP
