@@ -17,14 +17,11 @@ spec:
     spec:
       containers:
         - name: simpleapi
-          image: eaglevision.azurecr.io/simpleapi:latest
-          imagePullPolicy: Always
+          image: doniyozov/api:v2
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
-              protocol: TCP
-          env:
-            - name: ASPNETCORE_URLS 
-              value: http://+:80
+              protocol: TCP    
 ---
 apiVersion: v1
 kind: Service
@@ -38,7 +35,7 @@ spec:
   ports:
     - port: 5005 #his  port is the port which belongs to ClusterIP which will be exposed
       targetPort: 80 #this port should match with the port application is targetting in this case: containerPort: 80. 
-      nodePort: 30010 # this should be in from range: 30000 - 32767
+      nodePort: 30011 # this should be in from range: 30000 - 32767
       protocol: TCP
   selector:
     service: simpleapi #This should match with Pod label

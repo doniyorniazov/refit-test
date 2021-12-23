@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   api:
-    image: doniyozov/api
+    image: doniyozov/api:v1
     container_name: API
     build:
       context: .

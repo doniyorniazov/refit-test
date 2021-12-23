@@ -14,16 +14,16 @@ namespace SimpleApi.Controllers
     {
         private static List<GuestModel> guests = new()
         {
-            new GuestModel { Id = 1, FirstName = "Tim", LastName = "Corey" },
-            new GuestModel { Id = 2, FirstName = "Sue", LastName = "Storm" },
-            new GuestModel { Id = 3, FirstName = "Robert", LastName = "Spencer" }
+            new GuestModel { Id = 1, FirstName = "Qutfullo", LastName = "Ochilov" },
+            new GuestModel { Id = 2, FirstName = "Dilshod", LastName = "Komilov" },
+            new GuestModel { Id = 3, FirstName = "Usmonjon", LastName = "Nurmatov" }
         };
 
         // GET: api/<GuestsController>
         [HttpGet]
         public IEnumerable<GuestModel> Get()
         {
-             Thread.Sleep(10000);
+            Thread.Sleep(1000);
             return guests;
         }
 
@@ -31,7 +31,7 @@ namespace SimpleApi.Controllers
         [HttpGet("{id}")]
         public GuestModel Get(int id)
         {
-            return guests.Where(g => g.Id == id).FirstOrDefault();
+            return guests.FirstOrDefault(g => g.Id == id);
         }
 
         // POST api/<GuestsController>
@@ -45,7 +45,7 @@ namespace SimpleApi.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] GuestModel value)
         {
-            guests.Remove(guests.Where(g => g.Id == id).FirstOrDefault());
+            guests.Remove(guests.FirstOrDefault(g => g.Id == id));
             guests.Add(value);
         }
 
@@ -53,7 +53,7 @@ namespace SimpleApi.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            guests.Remove(guests.Where(g => g.Id == id).FirstOrDefault());
+            guests.Remove(guests.FirstOrDefault(g => g.Id == id));
         }
     }
 }

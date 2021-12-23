@@ -1,40 +1,60 @@
 ﻿@page "/"
+@using System.Threading
+@using System.Timers
+@using Timer = System.Timers.Timer
 @inject IGuestData GuestData;
 
 @if (data is not null)
 {
-
     @foreach (var item in data)
     {
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>@item.Id @item.FirstName @item.LastName</h2>
-                    </div>
-                    <div class="col-md=6">
-                        <button class="btn btn-primary" @onclick="@(e => AddGuest(item))">Add Guest</button>
-                        <button class="btn btn-warning">Update Guest</button>
-                        <button class="btn btn-danger">Delete Guest</button>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>@item.Id @item.FirstName @item.LastName</h3>
+            </div>
+            <!--     <div class="col-md=6">
+                <button class="btn btn-primary" @onclick="@(e => AddGuest(item))">Add Guest</button>
+                <button class="btn btn-warning">Update Guest</button>
+                <button class="btn btn-danger">Delete Guest</button>
+            </div> -->
+        </div>
     }
 }
+<h4>@counter</h4>
 
 @code {
+
     private List<GuestModel> data;
+    GuestModel Doniyor = new GuestModel();
+    private int counter = 0;
+
+    Timer timer = new Timer();
+
     protected override async Task OnInitializedAsync()
     {
-        data = await GuestData.GetGuests();
+        timer.Interval = 1000;
+        timer.Elapsed += TimerOnElapsed;
+        timer.AutoReset = true;
+        timer.Enabled = true;
+        timer.Start();
     }
+
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        counter++;
+        Console.WriteLine(counter); 
+    }
+
     private async Task AddGuest(GuestModel guest)
     {
         await GuestData.CreateGuest(
-        new GuestModel()
+            new GuestModel()
             {
                 Id = data.Count + 1,
                 FirstName = guest.FirstName,
                 LastName = guest.LastName
             }
-    );
+            );
         data = await GuestData.GetGuests();
     }
 
