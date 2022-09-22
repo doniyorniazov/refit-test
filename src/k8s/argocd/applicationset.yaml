@@ -5,7 +5,7 @@ metadata:
 spec:
   goTemplate: true
   generators:
-    - clusters: {}
+    - clusters: {} #add cluster info
   template:
     metadata:
       name: "simpleapi"
