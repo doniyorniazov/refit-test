@@ -10,7 +10,7 @@ spec:
     metadata:
       name: "simpleapi"
     spec:
-      project: "default"
+      project: "simpleapi"
       source:
         repoURL: https://github.com/argoproj/argocd-example-apps/
         targetRevision: HEAD
