@@ -1,20 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook
+  name: api
 spec:
-  goTemplate: true
   generators:
-    - clusters: {} #add cluster info
+    - list:
+        elements:
+          - cluster: niydon-dev
+            url: https://1.2.3.4
+          - cluster: niydon-qa
+            url: https://2.4.6.8
+          - cluster: niydon-prod
+            url: https://9.8.7.6
   template:
     metadata:
-      name: "simpleapi"
+      name: "simple-api"
     spec:
-      project: "simpleapi"
+      project: simple-api
       source:
-        repoURL: https://github.com/argoproj/argocd-example-apps/
+        repoURL: https://github.com/doniyorniazov/refit-test.git
         targetRevision: HEAD
-        path: guestbook
+        path: applicationset/examples/list-generator/guestbook/{{cluster}}
       destination:
-        server: "{{.server}}"
+        server: "{{url}}"
         namespace: guestbook
